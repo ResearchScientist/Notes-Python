@@ -97,6 +97,7 @@ Shortcut notation `count += 1`.
 - **integer** whole number
 - **float** contains decimal
 - **string**
+- **complex**
 - **NoneType**
 
 Booleans such as `True` and `False` are interpreted as `1` and `0` and can have math operations acted on them.
