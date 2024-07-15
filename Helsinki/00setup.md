@@ -31,6 +31,10 @@ If making multiple environments with each having a unique name
 If using multiple environments:
 name each file to match the environment name `requirements-some-name.txt`
 
+**View List of Installed Packages**
+
+- `pip list`
+
 **Deactivate Environment**
 
 - `deactivate`
