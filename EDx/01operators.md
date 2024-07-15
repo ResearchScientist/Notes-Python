@@ -127,7 +127,7 @@ Sometimes a reserved keyword can be assigned as a variable name, but then the or
 # Tip
 Multiple strings and outputs can be organized as follows.
 ```
-print("some text {0}, more text {1}, more text {2}".format(var1 + var2 + var3))
+print(f"some text {0}, more text {1}, more text {2}".format(var1 + var2 + var3))
 ```
 In the code above the variables replace the indexes within the braces. This makes it easier to read the code.
 

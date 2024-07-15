@@ -1,11 +1,12 @@
 # Data Structures
 
 A sequence or collection that holds multiple values within one variable. Lists, arrays, and tuples are types of data structures.
-- **string** holds a list, or a sequence of characters
-- **list** holds multiple individual values within one variable
-similar to arrays, and tuples
-- **dictionary** holds key value pairs, entering the key retrieves its value
-similar to maps, associative arrays, hash maps, and hash tables
+- **string** `""` holds a list, or a sequence of characters
+- **tuple** `()` holds multiple individual values, ordered, fixed length, immutable
+- **list** `[]` holds multiple individual values within one variable, similar to arrays
+- **dictionary** `[:]` holds key value pairs, entering the key retrieves its value, similar to maps, associative arrays, hash maps, and hash tables
+
+`type()` displays the type for the data structure passed
 
 **Passing by Value**
 
@@ -43,6 +44,14 @@ print(id(list1))
 print(id(list2))
 # the two memory addresses are different
 ```
+
+# Functions
+
+`len()`
+`min()`
+`max()`
+`someList[0]` index
+`someList[5:10]` slice , first:last:step , where last is noninclusive , default is 0:len():1
 
 # Methods
 

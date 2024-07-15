@@ -6,6 +6,7 @@ Data structure that contains multiple values accessed via an ordered numerical i
 -**tuple** immutable list like structure
 
 **Tuple**
+
 Although tuples can contain heterogeneous data types, any actions performed on those types must be valid for each data type.
 
 Declaring a tuple. `( )`
@@ -62,7 +63,8 @@ All operations described above for strings and tuples can also be applied to lis
 Furthermore lists can contain combinations of lists and tuples and tuples can contain combinations of lists and tuples.
 
 Declaring a list. `[ ]`
-```
+
+```python
 list1 = [1,2,3]
 
 var1 = "a"
@@ -71,26 +73,39 @@ var3 = "c"
 list2 = [var1,var2,var3]
 ```
 
+Modifying a list.
+
+```python
+list1 = [1,2,3]
+list1[2] = 0
+print(list1)
+# [1,2,0]
+```
+
 Methods (list specific)
 
-`someList.sort()` sorts integers from smallest to largest and letters into alphabetical order
+
 `someList.append(someItem)` adds item given to the end of the list
+`someList.clear()` removes all items from the list
+`someList.copy()` returns a copy of the list
 `someList.extend(someOtherList)` adds values from someOtherList and adds them to the end of the list
+`someList.index(value)` returns index of given value
 `someList.insert(index,value)` adds given value to the given index
+`someList.pop()` removes last item from the list and returns it
 `someList.remove(value)` removes value given from the list
 `someList.reverse()` reverses the current order of the list
-`someList.pop()` removes last item from the list and returns it
-`someList.index(value)` returns index of given value
-`someList.copy()` returns a copy of the list
-`someList.clear()` removes all items from the list
+`someList.sort()` sorts integers from smallest to largest and letters into alphabetical order, mutates list
 
-`sorted(someList, key=itemgetter(index))` unlike sort which only sorts according to the first index in a tuple, sorted sorts a tuple based on any index given, before using this function `from operator import itemgetter, attrgetter` must be imported
+Functions
+
+`sorted(someList, key=itemgetter(index))` unlike sort which only sorts according to the first index in a tuple, sorted sorts a tuple based on any index given, before using this function `from operator import itemgetter, attrgetter` must be imported , does not mutate list
 
 `del someList[:]` not a method, but similar to slicing
 
 Adding to a list
 When setting `newlist = oldlist` both lists point to the same values in memory. They reference the same list.
-```
+
+```python
 list = [1,2,3]
 def combo(oldlist):
     oldlist.append(4)
@@ -105,7 +120,8 @@ print(list)        # [1,2,3,4,5]
 ```
 
 When setting `newlist = oldlist + (something)` both lists point to different values in memory. They reference different lists.
-```
+
+```python
 list = [1,2,3]
 def combo(oldlist):
     newlist = oldlist + [4]
@@ -119,7 +135,8 @@ print(list)        # [1,2,3]
 ```
 
 When making changes to a nested list, those changes persist outside the function.
-```
+
+```python
 list = [1,2,3,["a","b","c"]]
 def combo(oldlist):
     newlist = oldlist + [4]
@@ -130,7 +147,6 @@ def combo(oldlist):
 
 print(combo(list)) # [1,2,3,[0,'b','c'],4]
 print(list)        # [1,2,3,[0,'b','c']]
-
 ```
 
 **Multi Dimensional Lists** are lists within lists
@@ -138,7 +154,8 @@ print(list)        # [1,2,3,[0,'b','c']]
 **2 Dimensional List**
 
 The following code returns a list of average grades per student. The input is a list of students that contains lists of each students grades.
-```
+
+```python
 def student_grades_averages(student_grades):
     result = []
     for student in student_grades:
@@ -169,3 +186,23 @@ The first item added is the first item removed.
 
 **Linked List**
 A list in which only the first item is allocated an index. Within that location it points to the next items location. The next item points to the following items location and so on. Useful for improving performance in older programming languages. Not really an issue for modern programming languages.
+
+# Enumerate
+
+Use for finding the occurence of elements in a sequence.
+
+```python
+l = [1,5,4,3,1,8,2,4,2,3,1]
+
+occurrences = 0
+occurrences_sought = 2
+number_searched = 1
+for i, n in enumerate(l):
+  if n == number_searched:
+    occurrences += 1
+    if occurrences == occurrences_sought:
+      break
+print(f"Occurrence {occurrences_sought} of number {number_searched} is at index {i}.")
+
+# Occurrence 2 of number 1 is at index 4.
+```
