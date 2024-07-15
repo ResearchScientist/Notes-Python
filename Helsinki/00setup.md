@@ -20,7 +20,7 @@ If making multiple environments with each having a unique name
 **Activate Environment**
 
 - `source .venv/bin/activate` (no name)
-- `source .venv=some-name/bin/active` (unique name)
+- `source .venv-some-name/bin/active` (unique name)
 
 **Install Packages**
 
@@ -30,7 +30,6 @@ If making multiple environments with each having a unique name
 
 If using multiple environments:
 name each file to match the environment name `requirements-some-name.txt`
-
 
 **Deactivate Environment**
 
