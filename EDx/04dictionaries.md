@@ -9,31 +9,69 @@ But not mutable objects such as lists or dictionaries.
 - **key** passed into a dictionary in order to retrieve a value
 - **value** returned that corresponds to the key passed in
 
-Declaring a dictionary `{ }`
+# Declare Dictionary
+
+Declare a dictionary with `{ }`
+
+Use `key:value`
 ```python
 aDictionary = {"kittens":10,"kitties":4,"cats":2}
-print(aDictionary)         # {'cats': 2, 'kittens': 10, 'kitties': 4}
+print(aDictionary)
+# {'cats': 2, 'kittens': 10, 'kitties': 4}
 ```
 
-Accessing Values
+Declare a dictionary with `dict()`
 
 ```python
-print(aDictionary["cats"]) # 2
-aDictionary["cats"] = 9    # changes value of key cats from 2 to 9
-print(aDictionary["cats"]) # 9
+dic = dict([("key1","val1"),("key2","val2"),("key3","val3")])
+pint(dic)
+# {'key1: 'val1', 'key2: 'val2', 'key3: 'val3'}
+```
+or
 
-myKittens = aDictionary["kittens"] # assigns value of key to variable
-print(myKittens)                   # 10
+```python
+dic = dict(key1="val1",key2="val2",key3="val3")
+pint(dic)
+# {'key1: 'val1', 'key2: 'val2', 'key3: 'val3'}
 ```
 
-Making a dictionary from a list
+Declare a dictionary with `[ ]`
 
+Use a list `("key","value")`
 ```python
 aList = [("kittens",10),("kitties",4),("cats",2)]
 
 aDict = {}
 for catTuple in aList:
-    aDict[catTuple[0]] = catTuple[1]  # assigns key value pair
+    aDict[catTuple[0]] = catTuple[1]# assigns key value pair
+```
+
+# Access Values
+
+`someDict["someKey"]` returns someValue
+
+variable assignment
+```python
+myKittens = someDict["someKey"]
+# assigns value of key to variable
+print(myKittens)
+# 10
+```
+
+# Modify Key
+
+```python
+
+```
+
+# Modify Value
+
+```python
+print(someDict["someKey"])
+# 2
+someDict["someKey"] = 9
+print(someDict["someKey"])
+# 9
 ```
 
 Adding new key value pairs to a dictionary
@@ -41,7 +79,8 @@ Adding new key value pairs to a dictionary
 ```python
 aDict = {"kittens":10,"kitties":4,"cats":2}
 aDict["mews"] = 100  # adds key to dictionary and assigns its value
-print(aDict)  # {'mews': 100, 'kittens': 10, 'kitties': 4, 'cats': 2}
+print(aDict)
+# {'mews': 100, 'kittens': 10, 'kitties': 4, 'cats': 2}
 ```
 
 Removing key value pairs from a dictionary
@@ -49,7 +88,8 @@ Removing key value pairs from a dictionary
 ```python
 aDict = {'mews': 100, 'kittens': 10, 'kitties': 4, 'cats': 2}
 del aDict["mews"]  # removes key value pair
-print(aDict)  # {"kittens":10,"kitties":4,"cats":2}
+print(aDict)
+# {"kittens":10,"kitties":4,"cats":2}
 ```
 
 Incrementing key value counts
@@ -68,11 +108,21 @@ if not myKey in myDict:
 myDict[myKey] += 1     # always increments the key
 ```
 
-**Methods**
+# Methods
 
-`someDict.keys()` returns list of keys from given dictionary
-`someDict.values()` returns list of values from given dictionary
-`someDict.items()` returns list of tuples where first item is the key and second item is the value
+`d = some dictionary`
+
+**Non Mutating**
+
+`d.keys()` returns list of keys from given dictionary
+
+`d.values()` returns list of values from given dictionary
+
+`d.items()` returns list of tuples where first item is the key and second item is the value
+
+`d.copy()`
+
+`d.get(k[,x])`
 
 Use `.keys()` to iterate through keys and return the value for that key
 
@@ -98,6 +148,16 @@ for (key,value) in myDict.items():
     if value < 3:
 print("We have",value,key)  # We have 2 cats
 ```
+
+**Mutating**
+
+`d.clear()`
+`d.update()`
+`d.setdefault(k[,x])`
+`d.pop(k[,x])`
+`d.popitem()`
+
+# Word Count
 
 How to count words in a string
 
