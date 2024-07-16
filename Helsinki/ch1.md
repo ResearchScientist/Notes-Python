@@ -1,3 +1,30 @@
+# Var Assignements
+
+Use `=` to declare a variable and its content.
+
+Variable on left of `=` and content on right
+
+`salutation = "hiya"`
+
+Delete a variable while not deleting the content.
+
+`del salutation`
+
+Delete an item via its index.
+```python
+salutation = ["hi","hiya","hello"]
+
+print(salutation)
+# ['hi', 'hiya', 'hello']
+
+del salutation[0]
+
+print(salutation)
+# ['hiya', 'hello']
+```
+
+# Strings
+
 f strings `print(f"{var} is a var)`
 
 # Strings
@@ -14,7 +41,7 @@ b
 c'''
 ```
 
-# user input
+# User Input
 
 ```python
 print("what's your favourite food?")
@@ -24,19 +51,19 @@ favourite_food = input()
 print("wow, I also like",favourite_food)
 ```
 
-# numbers
+# Numbers
 
 `int()` integer
 `float()` decimal
 
-# decimals
+# Decimals
 
 ```python
 print(f'{1.5:.1f} {1.5:.2f} {1.5:.3f}')
 # 1.5 1.50 1.500
 ```
 
-# while
+# While
 
 function runs while condition returns true
 
@@ -48,7 +75,7 @@ while i*i < 100:
 print('all done')
 ```
 
-# for
+# For
 
 function runs once for each element in list
 
@@ -67,7 +94,7 @@ for i in range(3):
 print('you')
 ```
 
-# matrix
+# Matrix
 
 multiplication table
 ```python
@@ -314,4 +341,207 @@ for day,climate,temp in zip(days,climates,temps):
 # On fr it was warm and 10 celsius.
 # On sa it was nice and 9 celsius.
 # On su it was sunny and 10 celsius.
+```
+
+# Dictionaries
+
+```python
+d = dict(one=1,two=2,three=3)
+print(d.keys())
+print(d.values())
+```
+
+# Sets
+
+A set is dynamic and unordered. The elements must be hashable. Each unique element is counted once.
+
+**Create Set**
+
+`s = set([1,2,3,'a','b','c',3,2,1])`
+
+**Example**
+
+```python
+word = "stippsi"
+wordLength = len(word)
+uniqueLetters = len(set(word))
+print(f"{word} has {wordLength} letters and {uniqueLetters} are unique")
+# stippsi has 7 letters and 4 are unique
+```
+
+**Set Operators**
+
+`|` or
+
+`&` and
+
+`-` difference
+
+`^` symmetric difference
+
+**Methods Non Mutating**
+
+where `s1 = set([1,2,3])` and `s2 = set([2,3,4])`
+
+`s1.copy()`
+
+`s1.issubset(s2)`
+
+`s1.issuperset(s2)`
+
+`s1.union(s2)` or `s1|s2`
+
+`s1.intersection(s2)` or `s1&s2`
+
+`s1.difference(s2)` or `s1-s2`
+
+`s1.symmetric_difference(s2)` or `s1^s2`
+
+Examples
+```python
+s1 = set([1,2,3])
+s2 = set([2,3,4])
+
+print(s1.union(s2))
+print(s1|s2)
+# {1, 2, 3, 4}
+# {1, 2, 3, 4}
+
+print(s1.intersection(s2))
+print(s1&s2)
+# {2, 3}
+# {2, 3}
+
+print(s1.difference(s2))
+print(s1-s2)
+# {1}
+# {1}
+
+print(s2.difference(s1))
+print(s2-s1)
+# {4}
+# {4}
+
+print(s1.symmetric_difference(s2))
+print(s1^s2)
+# {1, 4}
+# {1, 4}
+```
+
+**Methods Mutating**
+
+`s.add()`
+
+`s.clear()`
+
+`s.discard()`
+
+`s.pop()`
+
+`s.remove()`
+
+# In
+
+Checks if an iterable contains the passed element and returns boolean `True` or `False`.
+
+```python
+print(1 in [1,2])
+print("cat" in "cats")
+print("kat" in "cats")
+# True
+# True
+# False
+```
+
+```python
+words = ["house","boat","puppy","kitten"]
+
+def dist_chars(wordlist):
+  wordDict = {}
+  for word in wordlist:
+    wordDict[word] = len(set(word))
+  print(wordDict)
+
+dist_chars(words)
+# {'house': 5, 'boat': 4, 'puppy': 3, 'kitten': 5}
+```
+
+# Unpack
+
+By declaring multiple variables on the left of `=` the elements within an iterable on the right are assigned to each variable on the left.
+
+Unpack a list.
+```python
+one,two = [1,2]
+print(one,two)
+# 1 2
+```
+
+Unpack a string.
+```python
+one,two,three = "cat"
+print(two)
+# a
+```
+
+Unpack a dictionary.
+```python
+d=dict(a=1,b=2)
+key1,key2 = d
+
+print(d)
+print(key1,key2)
+print(d[key1])
+
+# {'a': 1, 'b': 2}
+# a b
+# 1
+```
+
+```python
+d=dict(a=1,b=2)
+
+for i,j in d.items():
+  print(f"the key is {i} and it's value is {j}")
+
+# the key is a and it's value is 1
+# the key is b and it's value is 2
+```
+
+# Reverse Dictionary Order
+
+```python
+d = {"caldo":"hot in italian","caliente":"hot in spanish","chaud":"hot in french","cold":"cold in english"}
+
+def switchOrder(someDic):
+  newd = {}
+  for i,j in someDic.items():
+    newd[j] = i
+  print(newd)
+
+switchOrder(d)
+
+# {'hot in italian': 'caldo', 'hot in spanish': 'caliente', 'hot in french': 'chaud', 'cold in english': 'cold'}
+```
+
+# List Comprehension
+
+A one line manner of writing a 
+
+Via for loop.
+```python
+l = []
+for i in range(1,11):
+  l.append(i**2)
+
+print(l)
+# [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
+
+Via list comprehension.
+```python
+l = [i**2 for i in range(1,11)]
+print(l)
+
+# [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
