@@ -526,9 +526,12 @@ switchOrder(d)
 
 # List Comprehension
 
-A one line manner of writing a 
+List comprehension is shorthand for making a list.
+It is an alternate method to using a for loop.
 
-Via for loop.
+[ someExpression `for` someElement `in` someIterable someOptionalClause ]
+
+Via traditional for loop.
 ```python
 l = []
 for i in range(1,11):
@@ -541,7 +544,33 @@ print(l)
 Via list comprehension.
 ```python
 l = [i**2 for i in range(1,11)]
-print(l)
 
+print(l)
 # [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
+
+# Generator Expression
+
+Iterates through a list only once. Hence more memory efficient than a list comprehension.
+
+( someExpression `for` someElement `in` someIterable someOptionalClause )
+
+Same syntax as a list comprehension, except it uses `()` instead of `[]`.
+
+```python
+l = (i**2 for i in range(1,11))
+
+print(l)
+# [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
+
+# Dictionary Comprehension
+
+{ someExpression `for` someElement `in` someIterable someOptionalClause }
+
+```python
+d = {i:i**2 for i in range(1,11)}
+
+print(d)
+# {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
 ```
