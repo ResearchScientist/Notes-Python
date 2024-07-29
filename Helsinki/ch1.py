@@ -1,18 +1,17 @@
 # kittens = {"suky":1,"pusheen":2,"nero":3}
 
-string = "1 2 3"
-print(type(string))
-# <class 'str'>
+L = [1,2,3]
 
-list = string.split()
-print(type(string))
-# <class 'list'>
+def adds(l):
+  s=0
+  for n in l:
+    s = s+n
+  return s
 
-def adds(something):
-  total = 0
-  for some in something:
-    some = int(some)
-    total = total + some
-  print(total)
+print(adds(L))
 
-adds(list)
+from functools import reduce
+
+reduced = reduce(lambda a,b:a+b,L,0)
+
+print(reduced)

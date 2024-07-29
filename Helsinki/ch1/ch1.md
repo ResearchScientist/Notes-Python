@@ -529,7 +529,9 @@ switchOrder(d)
 List comprehension is shorthand for making a list.
 It is an alternate method to using a for loop.
 
-[ someExpression `for` someElement `in` someIterable someOptionalClause ]
+```python
+[ someExpression for someElement in someIterable someOptionalClause ]
+```
 
 Via traditional for loop.
 ```python
