@@ -15,7 +15,7 @@
 - Takes 2 parameters : a function and a list.
 - Parameter function operates on each element of the list.
 - Parameter function receives one value an returns one value.
-- Map function returns a map object.
+- Map function returns an iterable map object.
 - To view the map object convert it to a list.
 
 ```python
